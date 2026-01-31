@@ -1,0 +1,32 @@
+name: My CICD Pipeline in GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Basic system info
+      - name: Initialize workflow
+        run: |
+          echo "This is DevOps Rutu 🚀"
+          uname -a
+
+      # Step 3: Check Docker installation
+      - name: Check Docker installation
+        run: |
+          docker --version
+          docker images
+
+      # Step 4: Run a Docker container
+      - name: Run Docker hello-world
+        run: |
+          docker run hello-world
